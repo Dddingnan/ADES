@@ -6,7 +6,10 @@ public abstract class AbstractAirplane implements Airplane {
     protected double fuelCapacity; // in gallons
     protected double fuelBurnRate; // in gallons per hour
 
-    public AbstractAirplane(String name, double range, double fuelCapacity, double fuelBurnRate) {
+    public AbstractAirplane(String name, double range, double fuelCapacity, double fuelBurnRate) throws InvalidDataException {
+        if (fuelCapacity < 0 || fuelBurnRate < 0) {
+            throw new InvalidDataException("Invalid airplane data for " + name, "Airplane", "fuelCapacity: " + fuelCapacity + ", fuelBurnRate:" + fuelBurnRate);
+        }
         this.name = name;
         this.range = range;
         this.fuelCapacity = fuelCapacity;

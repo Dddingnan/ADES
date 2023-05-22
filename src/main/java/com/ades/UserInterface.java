@@ -1,6 +1,5 @@
 package main.java.com.ades;
 
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,14 +27,22 @@ public class UserInterface {
             while (locationIndex < 0 || locationIndex >= locations.size()) {
                 System.out.print("Enter a number between 1 and " + locations.size() + ": ");
                 try {
-                    locationIndex = scanner.nextInt() - 1;
-                } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter a number.");
+                    String input = scanner.next();
+                    if (!input.matches("\\d+")) { // Check if input not an integer number
+                        throw new InvalidDataException("Invalid data input. Please enter an integer number.", "UserInterface - Location - Not integer", input);
+                    }
+
+                    locationIndex = Integer.parseInt(input) - 1;
+
+                    if (locationIndex < 0 || locationIndex >= locations.size()) { // Check if input is within the valid range
+                        throw new InvalidDataException("Invalid input range. Please enter a number between 1 and " + locations.size(), "UserInterface - Not within the valid range", input);
+                    }
+
+                } catch (InvalidDataException e) {
+                    System.out.println(e.getMessage());
                     scanner.nextLine(); // discard the invalid input
+                    locationIndex = -1; // Reset the index, forcing the loop to repeat
                     continue;
-                }
-                if (locationIndex < 0 || locationIndex >= locations.size()) {
-                    System.out.println("Invalid input. Please try again.");
                 }
             }
             Location currentLocation = locations.get(locationIndex);
@@ -49,14 +56,22 @@ public class UserInterface {
             while (airplaneIndex < 0 || airplaneIndex >= airplanes.size()) {
                 System.out.print("Enter a number between 1 and " + airplanes.size() + ": ");
                 try {
-                    airplaneIndex = scanner.nextInt() - 1;
-                } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter a number.");
+                	String input = scanner.next();
+                    if (!input.matches("\\d+")) { // Check if input not an integer number
+                        throw new InvalidDataException("Invalid data input. Please enter an integer number.", "UserInterface - Airplane - Not integer", input);
+                    }
+
+                    airplaneIndex = Integer.parseInt(input) - 1;
+                    
+                    if (airplaneIndex < 0 || airplaneIndex >= locations.size()) { // Check if input is within the valid range
+                        throw new InvalidDataException("Invalid input range. Please enter a number between 1 and " + airplanes.size(), "UserInterface - Not within the valid range", input);
+                    }
+
+                } catch (InvalidDataException e) {
+                    System.out.println(e.getMessage());
                     scanner.nextLine(); // discard the invalid input
+                    airplaneIndex = -1; // Reset the index, forcing the loop to repeat
                     continue;
-                }
-                if (airplaneIndex < 0 || airplaneIndex >= airplanes.size()) {
-                    System.out.println("Invalid input. Please try again.");
                 }
             }
             Airplane airplane = airplanes.get(airplaneIndex);

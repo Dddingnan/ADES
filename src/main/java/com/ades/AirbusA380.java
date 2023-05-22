@@ -1,7 +1,7 @@
 package main.java.com.ades;
 
 public class AirbusA380 extends AbstractAirplane {
-    public AirbusA380(String name, double range, double fuelCapacity, double fuelBurnRate) {
+    public AirbusA380(String name, double range, double fuelCapacity, double fuelBurnRate) throws InvalidDataException {
         super(name, range, fuelCapacity, fuelBurnRate);
     }
 

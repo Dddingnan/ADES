@@ -21,7 +21,7 @@ public class FileLoader {
      * 		   exist.
      * 		   IOException if an error occurs while reading the file.
      */
-    public List<Location> loadLocationsFromFile(String fileName) throws FileNotFoundException, IOException {
+    public List<Location> loadLocationsFromFile(String fileName) throws FileNotFoundException, IOException, InvalidDataException {
         List<Location> locations = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         while ((line = br.readLine()) != null) {
@@ -29,7 +29,11 @@ public class FileLoader {
             String name = locationData[0];
             double latitude = Double.parseDouble(locationData[1]);
             double longitude = Double.parseDouble(locationData[2]);
-            locations.add(new Location(name, latitude, longitude));
+            try {
+            	locations.add(new Location(name, latitude, longitude));
+            } catch (InvalidDataException e) {
+                System.out.println(e.getMessage());
+            }
         }
         br.close();
 
@@ -55,13 +59,16 @@ public class FileLoader {
             double range = Double.parseDouble(airplaneData[1]);
             double fuelCapacity = Double.parseDouble(airplaneData[2]);
             double fuelBurnRate = Double.parseDouble(airplaneData[3]);
-
-            if (name.equals("Boeing 747")) {
-                airplanes.add(new Boeing747(name, range, fuelCapacity, fuelBurnRate));
-            } else if (name.equals("Airbus A380")) {
-                airplanes.add(new AirbusA380(name, range, fuelCapacity, fuelBurnRate));
-            } else {
-                System.out.println("Unknown airplane type: " + name);
+            try {
+                if (name.equals("Boeing 747")) {
+    			    airplanes.add(new Boeing747(name, range, fuelCapacity, fuelBurnRate));
+    			} else if (name.equals("Airbus A380")) {
+    			    airplanes.add(new AirbusA380(name, range, fuelCapacity, fuelBurnRate));
+    			} else {
+    			    System.out.println("Unknown airplane type: " + name);
+    			}
+            } catch (InvalidDataException e) {
+                System.out.println(e.getMessage());
             }
         }
         br.close();
