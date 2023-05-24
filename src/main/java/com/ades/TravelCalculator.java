@@ -24,7 +24,7 @@ public class TravelCalculator {
         return reachableLocations;
     }
     
-    private double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+    public double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
     	// Haversine formula
     	// https://en.wikipedia.org/wiki/Haversine_formula
         int earthRadius = 6371; // Radius of the earth in km
