@@ -79,6 +79,14 @@ See you next time~!
 
 ---
 
+## To-Do List
+
+---
+
+- Detect the current season and add the indices of current weather to calculate the city distance.
+
+---
+
 ## Author
 
 Ding-Nan, Hsu. - 2023/05/16 -
