@@ -9,6 +9,17 @@ public class Main {
     public static void main(String[] args) throws InvalidDataException {
         System.out.println("Hello! Welcome to the Airplane Destination Evaluation System!");
         System.out.println("--------------------------------------------------------");
+        // Weather<Season> weather = new Weather<>(Season.Summer, 10.5, 25.0, 60.0);
+        // // Access the weather indices
+        // Season season = weather.getSeason();
+        // // Output the results
+        // System.out.println("Season: " + season);
+
+        // Weather<String> weather1 = new Weather<String>("Winter", 8, 21.0, 100.0);
+        // // Access the weather indices
+        // String season1 = weather1.getSeason();
+        // // Output the results
+        // System.out.println("Season: " + season1);
         List<Location> locations = new ArrayList<>();
         List<Airplane> airplanes = new ArrayList<>();
         FileLoader loader = new FileLoader();
@@ -25,6 +36,5 @@ public class Main {
             System.out.println("Error occurred while reading the file.");
             e.printStackTrace();
         }
-
     }
 }
