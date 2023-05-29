@@ -1,4 +1,4 @@
-# Assignment 1
+# Assignment 3
 
 ## About The Project
 
@@ -94,5 +94,5 @@ See you next time~!
 
 ## Author
 
-Ding-Nan, Hsu. - 2023/05/16 -
+Ding-Nan, Hsu. - 2023/05/29 -
 dingnan@bu.edu

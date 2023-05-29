@@ -29,7 +29,7 @@ public class TravelCalculator {
         return reachableLocations;
     }
     
-    private double calculateWeatherFactor(Weather<Season> weather) {
+    public double calculateWeatherFactor(Weather<Season> weather) {
         // Pre-condition: The weather object must not be null
         assert weather != null : "Weather object cannot be null";
         

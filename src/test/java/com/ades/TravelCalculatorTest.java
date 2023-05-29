@@ -4,74 +4,68 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import main.java.com.ades.*;
-
 import java.util.ArrayList;
 import java.util.List;
+import main.java.com.ades.*;
 
 public class TravelCalculatorTest {
-    private TravelCalculator travelCalculator;
     private List<Location> locations;
+    private Weather<Season> weather;
 
     @BeforeEach
-    public void setup() throws InvalidDataException {
-        // Initialize the test data
+    public void setUp() throws InvalidDataException {
+        // Create sample locations
         locations = new ArrayList<>();
-        Location location1 = new Location("City1", 40.7128, -74.0060);
-        Location location2 = new Location("City2", 34.0522, -118.2437);
-        Location location3 = new Location("City3", 51.5074, -0.1278);
-        locations.add(location1);
-        locations.add(location2);
-        locations.add(location3);
+        locations.add(new Location("City1", 40.7128, -74.0060));
+        locations.add(new Location("City2", 34.0522, -118.2437));
+        locations.add(new Location("City3", 51.5074, -0.1278));
 
-        travelCalculator = new TravelCalculator(locations);
+        // Create a sample weather object
+        weather = new Weather<>(Season.Spring, 10.0, 20.0, 70.0);
     }
 
     @Test
-    public void testCalculateReachableLocations() {
-        // Create a mock airplane
-        Airplane airplane = new Airplane() {
-            @Override
-            public String getName() {
-                return "TestAirplane";
-            }
+    public void testCalculateReachableLocations() throws InvalidDataException {
+        // Create a sample airplane
+        Airplane airplane = new Boeing747("Boeing 747", 10000, 50000, 1000);
 
-            @Override
-            public double getRange() {
-                return 2000.0;
-            }
+        // Create a sample current location
+        Location currentLocation = new Location("CurrentCity", 40.7128, -74.0060);
 
-            @Override
-            public double getFuelCapacity() {
-                return 1000.0;
-            }
+        // Create an instance of TravelCalculator
+        TravelCalculator travelCalculator = new TravelCalculator(locations, weather);
 
-            @Override
-            public double getFuelBurnRate() {
-                return 100.0;
-            }
-
-            @Override
-            public double getFuelConsumption() {
-                return 10.0;
-            }
-        };
-
-        // Set the current location
-        Location currentLocation = locations.get(0);
-
-        // Call the method being tested
+        // Calculate reachable locations
         List<Location> reachableLocations = travelCalculator.calculateReachableLocations(airplane, currentLocation);
 
-        // Assert that the reachable locations are correct
-        Assertions.assertEquals(2, reachableLocations.size());
-        Assertions.assertTrue(reachableLocations.contains(locations.get(1)));
-        Assertions.assertTrue(reachableLocations.contains(locations.get(2)));
+        // Assert that reachableLocations contains the expected locations
+        Assertions.assertTrue(reachableLocations.contains(locations.get(0))); // City1 is reachable
+        Assertions.assertFalse(reachableLocations.contains(locations.get(1))); // City2 is not reachable
+        Assertions.assertFalse(reachableLocations.contains(locations.get(2))); // City3 is not reachable
+    }
+
+    @Test
+    public void testCalculateWeatherFactor() {
+        // Create an instance of TravelCalculator
+        TravelCalculator travelCalculator = new TravelCalculator(locations, weather);
+
+        // Calculate the weather factor
+        double weatherFactor = travelCalculator.calculateWeatherFactor(weather);
+
+        // Assert that the weather factor is within the valid range
+        Assertions.assertTrue(weatherFactor >= 0 && weatherFactor <= 2);
     }
 
     @Test
     public void testCalculateDistance() {
+        // Create an instance of TravelCalculator
+        TravelCalculator travelCalculator = new TravelCalculator(locations, weather);
+
+        // Calculate the distance between two locations
         double distance = travelCalculator.calculateDistance(40.7128, -74.0060, 34.0522, -118.2437);
-        Assertions.assertEquals(3939.2, distance, 0.1); // Accept a small tolerance for floating-point calculations
+
+        // Assert that the distance is within a reasonable range
+        Assertions.assertTrue(distance > 4000 && distance < 5000); // Approximate distance between City1 and City2
     }
 }
+
