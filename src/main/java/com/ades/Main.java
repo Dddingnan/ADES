@@ -13,9 +13,9 @@ public class Main {
         List<Airplane> airplanes = new ArrayList<>();
         FileLoader loader = new FileLoader();
         try {
-        	Season currentSeason = SeasonUtils.getCurrentSeason();
-        	System.out.println("User current season: " + currentSeason);
-        	System.out.println("--------------------------------------------------------");
+            Season currentSeason = SeasonUtils.getCurrentSeason();
+            System.out.println("User current season: " + currentSeason);
+            System.out.println("--------------------------------------------------------");
             locations = loader.loadLocationsFromFile("src/data/locations.csv");
             airplanes = loader.loadAirplanesFromFile("src/data/airplanes.csv");
             List<Weather<Season>> weatherList = loader.loadWeatherFromFile("src/data/weather.csv", Season::valueOf);
