@@ -9,24 +9,21 @@ public class Main {
     public static void main(String[] args) throws InvalidDataException {
         System.out.println("Hello! Welcome to the Airplane Destination Evaluation System!");
         System.out.println("--------------------------------------------------------");
-        // Weather<Season> weather = new Weather<>(Season.Summer, 10.5, 25.0, 60.0);
-        // // Access the weather indices
-        // Season season = weather.getSeason();
-        // // Output the results
-        // System.out.println("Season: " + season);
-
-        // Weather<String> weather1 = new Weather<String>("Winter", 8, 21.0, 100.0);
-        // // Access the weather indices
-        // String season1 = weather1.getSeason();
-        // // Output the results
-        // System.out.println("Season: " + season1);
         List<Location> locations = new ArrayList<>();
         List<Airplane> airplanes = new ArrayList<>();
         FileLoader loader = new FileLoader();
         try {
+        	Season currentSeason = SeasonUtils.getCurrentSeason();
+        	System.out.println("User current season: " + currentSeason);
             locations = loader.loadLocationsFromFile("src/data/locations.csv");
             airplanes = loader.loadAirplanesFromFile("src/data/airplanes.csv");
-            TravelCalculator travelCalculator = new TravelCalculator(locations);
+            List<Weather<Season>> weatherList = loader.loadWeatherFromFile("src/data/weather.csv", Season::valueOf);
+            // Get the user's current data and determine the season
+            Weather<Season> currentWeather = weatherList.stream()
+                    .filter(weather -> weather.getSeason() == currentSeason)
+                    .findFirst()
+                    .orElse(null);
+            TravelCalculator travelCalculator = new TravelCalculator(locations, currentWeather);
             UserInterface ui = new UserInterface(locations, airplanes, travelCalculator);
             ui.start();
         } catch (FileNotFoundException e) {
