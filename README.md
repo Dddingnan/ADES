@@ -40,6 +40,10 @@ This project aims to create a tool that allows users to figure out where they ca
 ```
 Hello! Welcome to the Airplane Destination Evaluation System!
 --------------------------------------------------------
+Hello! Welcome to the Airplane Destination Evaluation System!
+--------------------------------------------------------
+User current season: Spring
+--------------------------------------------------------
 Please select your current location:
 1. Boston
 2. New York
@@ -58,11 +62,12 @@ Please select your current location:
 15. Cairo
 16. Johannesburg
 17. Nairobi
-Enter a number between 1 and 17: 1
+Enter a number between 1 and 17:
+1
 Please select your airplane type:
 1. Boeing 747
 2. Airbus A380
-Enter a number between 1 and 2: 2
+Enter a number between 1 and 2: 1
 Potential city destinations on a single tank of fuel:
 1. New York
 2. Los Angeles
