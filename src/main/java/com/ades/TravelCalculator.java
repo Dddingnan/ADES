@@ -19,10 +19,9 @@ public class TravelCalculator {
                 double distance = calculateDistance(currentLocation.getLatitude(), currentLocation.getLongitude(),
                                                     location.getLatitude(), location.getLongitude());
         		double weatherFactor = calculateWeatherFactor(weather);
-        		// TODO Here
-        		double finalDistance = distance * weatherFactor;
-        		System.out.println("calculateReachableLocations-------: " + weatherFactor + "    " + distance + "    " + finalDistance + "  " + airplane.getRange());
-                if (finalDistance <= airplane.getRange()) {
+        		// Weather condition affect the ability of a plane fly range
+        		double finalAirplaneRange = airplane.getRange() * weatherFactor;
+                if (distance <= finalAirplaneRange) {
                     reachableLocations.add(location);
                 }
             }
