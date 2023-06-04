@@ -20,6 +20,7 @@ This project aims to create a tool that allows users to figure out where they ca
 
 - Java 17
 - Eclipse
+- Maven
 
 ### Installation
 
@@ -27,19 +28,30 @@ This project aims to create a tool that allows users to figure out where they ca
 
 ### How to run?
 
+#### Eclipse
+
 - Start Eclipse
 - Go to File-> Import-> General-> Existing Projects Into Workspace
 - Select the archive file option
 - browse to the ADES zip file in this folder
 - click Finish
 
+#### Maven
+
+- With Test:
+
+  1. mvn clean install -DskipTests
+  2. mvn exec:java
+
+- Without Test:
+  1. mvn clean install
+  2. mvn exec:java
+
 ---
 
 ## Expected result
 
 ```
-Hello! Welcome to the Airplane Destination Evaluation System!
---------------------------------------------------------
 Hello! Welcome to the Airplane Destination Evaluation System!
 --------------------------------------------------------
 User current season: Spring
@@ -88,23 +100,18 @@ See you next time~!
 
 ---
 
-- Detect the current season and add the indices of current weather to calculate the city distance.
+- Display Flight Duration
+  - include a calculation for estimated flight duration based on the speed of the chosen airplane and the distance to each potential destination.
+- Fuel Consumption
+  - Provide an estimate of fuel consumption for the trip to each potential destination. This could take into consideration the airplane's fuel efficiency, the distance, and even the season if it significantly affects fuel efficiency.
+- CO2 Emissions Estimation
+  - Given growing environmental consciousness, providing an estimate of the CO2 emissions for each flight could be an interesting addition. This could be calculated based on the fuel consumption and the specific CO2 emissions per liter of aviation fuel.
+- Cost of Flight
+  - obtain average costs of aviation fuel, you can estimate the cost of the flight based on the amount of fuel needed.
+- Adding More Airplane Types
+  - increase the number of airplane types for the user to select from. More options would add more depth to the calculations and results.
 
 ---
-
-## How to run?
-
----
-
-With Test:
-
-1. mvn clean install -DskipTests
-2. mvn exec:java
-
-Without Test:
-
-1. mvn clean install
-2. mvn exec:java
 
 ## Author
 

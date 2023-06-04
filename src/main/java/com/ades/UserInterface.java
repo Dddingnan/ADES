@@ -2,6 +2,9 @@ package com.ades;
 
 import java.util.List;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class UserInterface {
     private List<Location> locations;
@@ -88,6 +91,15 @@ public class UserInterface {
             System.out.println("Potential city destinations on a single tank of fuel:");
             for (int i = 0; i < reachableLocations.size(); i++) {
                 System.out.println((i + 1) + ". " + reachableLocations.get(i).getName());
+            }
+
+            // Write reachableLocations to a text file
+            try (PrintWriter writer = new PrintWriter(new FileWriter("reachable_locations.txt"))) {
+                for (int i = 0; i < reachableLocations.size(); i++) {
+                    writer.println((i + 1) + ". " + reachableLocations.get(i).getName());
+                }
+            } catch (IOException e) {
+                System.out.println("Error writing to file: " + e.getMessage());
             }
 
             System.out.println("--------------------------------------------------------");
