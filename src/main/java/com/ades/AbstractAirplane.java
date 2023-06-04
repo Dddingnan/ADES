@@ -1,4 +1,4 @@
-package main.java.com.ades;
+package com.ades;
 
 public abstract class AbstractAirplane implements Airplane {
     protected String name;
@@ -6,9 +6,11 @@ public abstract class AbstractAirplane implements Airplane {
     protected double fuelCapacity; // in gallons
     protected double fuelBurnRate; // in gallons per hour
 
-    public AbstractAirplane(String name, double range, double fuelCapacity, double fuelBurnRate) throws InvalidDataException {
+    public AbstractAirplane(String name, double range, double fuelCapacity, double fuelBurnRate)
+            throws InvalidDataException {
         if (fuelCapacity < 0 || fuelBurnRate < 0) {
-            throw new InvalidDataException("Invalid airplane data for " + name, "Airplane", "fuelCapacity: " + fuelCapacity + ", fuelBurnRate:" + fuelBurnRate);
+            throw new InvalidDataException("Invalid airplane data for " + name, "Airplane",
+                    "fuelCapacity: " + fuelCapacity + ", fuelBurnRate:" + fuelBurnRate);
         }
         this.name = name;
         this.range = range;
@@ -30,7 +32,7 @@ public abstract class AbstractAirplane implements Airplane {
     public double getFuelCapacity() {
         return this.fuelCapacity;
     }
-    
+
     @Override
     public double getFuelBurnRate() {
         return this.fuelBurnRate;

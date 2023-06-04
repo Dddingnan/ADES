@@ -1,10 +1,10 @@
 package test.java.com.ades;
 
 import org.junit.jupiter.api.Test;
-import main.java.com.ades.Location;
-import main.java.com.ades.InvalidDataException;
+import com.ades.Location;
+import com.ades.InvalidDataException;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LocationTest {

@@ -2,7 +2,7 @@ package test.java.com.ades;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import main.java.com.ades.Weather;
+import com.ades.Weather;
 
 public class WeatherTest {
 

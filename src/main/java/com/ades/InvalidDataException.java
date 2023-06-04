@@ -1,4 +1,4 @@
-package main.java.com.ades;
+package com.ades;
 
 public class InvalidDataException extends BaseInvalidDataException {
     private static final long serialVersionUID = 1L;

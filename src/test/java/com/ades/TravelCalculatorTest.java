@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import main.java.com.ades.*;
+import com.ades.*;
 
 public class TravelCalculatorTest {
     private List<Location> locations;
@@ -68,4 +68,3 @@ public class TravelCalculatorTest {
         Assertions.assertTrue(distance > 4000 && distance < 5000); // Approximate distance between City1 and City2
     }
 }
-

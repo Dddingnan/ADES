@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
-import main.java.com.ades.Season;
-import main.java.com.ades.SeasonUtils;
+import com.ades.Season;
+import com.ades.SeasonUtils;
 
 public class SeasonUtilsTest {
 
@@ -44,4 +44,3 @@ public class SeasonUtilsTest {
         System.setProperty("java.time.LocalDate.now", date.toString());
     }
 }
-

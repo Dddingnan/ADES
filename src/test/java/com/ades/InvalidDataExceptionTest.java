@@ -3,7 +3,7 @@ package test.java.com.ades;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import main.java.com.ades.InvalidDataException;
+import com.ades.InvalidDataException;
 
 public class InvalidDataExceptionTest {
 

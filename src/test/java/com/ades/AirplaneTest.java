@@ -2,10 +2,10 @@ package test.java.com.ades;
 
 import org.junit.jupiter.api.Test;
 
-import main.java.com.ades.InvalidDataException;
-import main.java.com.ades.Airplane;
-import main.java.com.ades.Boeing747;
-import main.java.com.ades.AirbusA380;
+import com.ades.InvalidDataException;
+import com.ades.Airplane;
+import com.ades.Boeing747;
+import com.ades.AirbusA380;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AirplaneTest {

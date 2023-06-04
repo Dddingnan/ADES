@@ -5,18 +5,18 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
-import main.java.com.ades.InvalidDataException;
-import main.java.com.ades.FileLoader;
-import main.java.com.ades.Location;
-import main.java.com.ades.Airplane;
-import main.java.com.ades.Weather;
+import com.ades.InvalidDataException;
+import com.ades.FileLoader;
+import com.ades.Location;
+import com.ades.Airplane;
+import com.ades.Weather;
 
 public class FileLoaderTest {
 
     @Test
     public void testLoadLocationsFromFile() {
         FileLoader fileLoader = new FileLoader();
-        String fileName = "locations.csv";
+        String fileName = "src/data/locations.csv";
 
         try {
             List<Location> locations = fileLoader.loadLocationsFromFile(fileName);
@@ -38,7 +38,7 @@ public class FileLoaderTest {
     @Test
     public void testLoadAirplanesFromFile() throws InvalidDataException {
         FileLoader fileLoader = new FileLoader();
-        String fileName = "airplanes.csv";
+        String fileName = "src/data/airplanes.csv";
 
         try {
             List<Airplane> airplanes = fileLoader.loadAirplanesFromFile(fileName);
@@ -61,7 +61,7 @@ public class FileLoaderTest {
     @Test
     public void testLoadWeatherFromFile() {
         FileLoader fileLoader = new FileLoader();
-        String fileName = "weather.csv";
+        String fileName = "src/data/weather.csv";
 
         try {
             List<Weather<String>> weatherList = fileLoader.loadWeatherFromFile(fileName, String::valueOf);
@@ -81,4 +81,3 @@ public class FileLoaderTest {
         }
     }
 }
-

@@ -1,4 +1,4 @@
-package main.java.com.ades;
+package com.ades;
 
 public enum Season {
 	Spring,

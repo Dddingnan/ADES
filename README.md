@@ -92,6 +92,20 @@ See you next time~!
 
 ---
 
+## How to run?
+
+---
+
+With Test:
+
+1. mvn clean install -DskipTests
+2. mvn exec:java
+
+Without Test:
+
+1. mvn clean install
+2. mvn exec:java
+
 ## Author
 
 Ding-Nan, Hsu. - 2023/05/29 -

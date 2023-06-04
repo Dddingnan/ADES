@@ -1,4 +1,4 @@
-package main.java.com.ades;
+package com.ades;
 
 import java.util.List;
 import java.util.Scanner;

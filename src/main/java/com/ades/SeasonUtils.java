@@ -1,12 +1,12 @@
-package main.java.com.ades;
+package com.ades;
 
 import java.time.LocalDate;
 import java.time.Month;
 
 public class SeasonUtils {
-	public static Season getCurrentSeason() {
-		LocalDate currentDate = LocalDate.now();
-		Month currentMonth = currentDate.getMonth();
+    public static Season getCurrentSeason() {
+        LocalDate currentDate = LocalDate.now();
+        Month currentMonth = currentDate.getMonth();
         if (currentMonth == Month.DECEMBER || currentMonth == Month.JANUARY || currentMonth == Month.FEBRUARY) {
             return Season.Winter;
         } else if (currentMonth == Month.MARCH || currentMonth == Month.APRIL || currentMonth == Month.MAY) {
@@ -16,5 +16,5 @@ public class SeasonUtils {
         } else {
             return Season.Autumn;
         }
-	}
+    }
 }
