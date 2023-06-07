@@ -2,6 +2,8 @@ package com.ades;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 public class TravelCalculator {
     private List<Location> locations;
@@ -12,19 +14,17 @@ public class TravelCalculator {
         this.weather = weather;
     }
 
-    public List<Location> calculateReachableLocations(Airplane airplane, Location currentLocation) {
-        List<Location> reachableLocations = new ArrayList<>();
+    public Map<Location, Double> calculateReachableLocations(Airplane airplane, Location currentLocation) {
+        Map<Location, Double> reachableLocations = new HashMap<>();
         for (Location location : locations) {
             if (!location.equals(currentLocation)) {
                 double distance = calculateDistance(currentLocation.getLatitude(), currentLocation.getLongitude(),
                         location.getLatitude(), location.getLongitude());
                 double weatherFactor = calculateWeatherFactor(weather);
-                // Weather condition affect the ability of a plane fly range
                 double finalAirplaneRange = airplane.getRange() * weatherFactor;
                 if (distance <= finalAirplaneRange) {
-                    reachableLocations.add(location);
                     double duration = calculateFlightDuration(airplane, distance);
-                    System.out.printf("Estimated flight duration to %s: %.2f hours\n", location.getName(), duration);
+                    reachableLocations.put(location, duration);
                 }
             }
         }

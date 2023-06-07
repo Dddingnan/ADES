@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import com.ades.*;
 
 public class TravelCalculatorTest {
@@ -36,12 +37,13 @@ public class TravelCalculatorTest {
         TravelCalculator travelCalculator = new TravelCalculator(locations, weather);
 
         // Calculate reachable locations
-        List<Location> reachableLocations = travelCalculator.calculateReachableLocations(airplane, currentLocation);
+        Map<Location, Double> reachableLocations = travelCalculator.calculateReachableLocations(airplane,
+                currentLocation);
 
         // Assert that reachableLocations contains the expected locations
-        Assertions.assertTrue(reachableLocations.contains(locations.get(0))); // City1 is reachable
-        Assertions.assertFalse(reachableLocations.contains(locations.get(1))); // City2 is not reachable
-        Assertions.assertFalse(reachableLocations.contains(locations.get(2))); // City3 is not reachable
+        Assertions.assertTrue(reachableLocations.containsKey(locations.get(0))); // City1 is reachable
+        Assertions.assertFalse(reachableLocations.containsKey(locations.get(1))); // City2 is not reachable
+        Assertions.assertFalse(reachableLocations.containsKey(locations.get(2))); // City3 is not reachable
     }
 
     @Test
