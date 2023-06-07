@@ -93,14 +93,15 @@ public class UserInterface {
                 System.out.println((i + 1) + ". " + reachableLocations.get(i).getName());
             }
 
-            // Write reachableLocations to a text file
-            try (PrintWriter writer = new PrintWriter(new FileWriter("reachable_locations.txt"))) {
-                for (int i = 0; i < reachableLocations.size(); i++) {
-                    writer.println((i + 1) + ". " + reachableLocations.get(i).getName());
-                }
-            } catch (IOException e) {
-                System.out.println("Error writing to file: " + e.getMessage());
-            }
+            // // Write reachableLocations to a text file
+            // try (PrintWriter writer = new PrintWriter(new
+            // FileWriter("reachable_locations.txt"))) {
+            // for (int i = 0; i < reachableLocations.size(); i++) {
+            // writer.println((i + 1) + ". " + reachableLocations.get(i).getName());
+            // }
+            // } catch (IOException e) {
+            // System.out.println("Error writing to file: " + e.getMessage());
+            // }
 
             System.out.println("--------------------------------------------------------");
             System.out.println("Do you want to make another calculation? (yes/no)");

@@ -50,7 +50,6 @@ public class FileLoaderTest {
             Assertions.assertEquals(1000.0, airplane1.getRange());
             Assertions.assertEquals(5000.0, airplane1.getFuelCapacity());
             Assertions.assertEquals(100.0, airplane1.getFuelBurnRate());
-
             // Add assertions for the remaining airplanes
 
         } catch (IOException e) {

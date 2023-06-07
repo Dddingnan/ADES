@@ -38,12 +38,12 @@ This project aims to create a tool that allows users to figure out where they ca
 
 #### Maven
 
-- With Test:
+- Without Test:
 
   1. mvn clean install -DskipTests
   2. mvn exec:java
 
-- Without Test:
+- With Test:
   1. mvn clean install
   2. mvn exec:java
 

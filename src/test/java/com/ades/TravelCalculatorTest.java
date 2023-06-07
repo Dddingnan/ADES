@@ -27,7 +27,7 @@ public class TravelCalculatorTest {
     @Test
     public void testCalculateReachableLocations() throws InvalidDataException {
         // Create a sample airplane
-        Airplane airplane = new Boeing747("Boeing 747", 10000, 50000, 1000);
+        Airplane airplane = new Boeing747("Boeing 747", 10000, 50000, 1000, 500);
 
         // Create a sample current location
         Location currentLocation = new Location("CurrentCity", 40.7128, -74.0060);

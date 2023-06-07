@@ -10,4 +10,6 @@ public interface Airplane {
     double getFuelBurnRate();
 
     double getFuelConsumption();
+
+    double getSpeed();
 }

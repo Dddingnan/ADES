@@ -64,11 +64,12 @@ public class FileLoader {
             double range = Double.parseDouble(airplaneData[1]);
             double fuelCapacity = Double.parseDouble(airplaneData[2]);
             double fuelBurnRate = Double.parseDouble(airplaneData[3]);
+            double speed = Double.parseDouble(airplaneData[4]);
             try {
                 if (name.equals("Boeing 747")) {
-                    airplanes.add(new Boeing747(name, range, fuelCapacity, fuelBurnRate));
+                    airplanes.add(new Boeing747(name, range, fuelCapacity, fuelBurnRate, speed));
                 } else if (name.equals("Airbus A380")) {
-                    airplanes.add(new AirbusA380(name, range, fuelCapacity, fuelBurnRate));
+                    airplanes.add(new AirbusA380(name, range, fuelCapacity, fuelBurnRate, speed));
                 } else {
                     System.out.println("Unknown airplane type: " + name);
                 }
