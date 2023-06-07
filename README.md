@@ -54,7 +54,7 @@ This project aims to create a tool that allows users to figure out where they ca
 ```
 Hello! Welcome to the Airplane Destination Evaluation System!
 --------------------------------------------------------
-User current season: Spring
+User current season: Summer
 --------------------------------------------------------
 Please select your current location:
 1. Boston
@@ -74,20 +74,20 @@ Please select your current location:
 15. Cairo
 16. Johannesburg
 17. Nairobi
-Enter a number between 1 and 17:
-1
+Enter a number between 1 and 17: 1
 Please select your airplane type:
 1. Boeing 747
 2. Airbus A380
 Enter a number between 1 and 2: 1
 Potential city destinations on a single tank of fuel:
-1. New York
-2. Los Angeles
-3. Paris
-4. Berlin
-5. Madrid
-6. Rome
-7. London
+1. New York (Estimated flight duration: 0.51 hours, Fuel consumption: 0.82 gallons)
+2. Rome (Estimated flight duration: 10.98 hours, Fuel consumption: 17.69 gallons)
+3. Cairo (Estimated flight duration: 14.53 hours, Fuel consumption: 23.42 gallons)
+4. London (Estimated flight duration: 8.77 hours, Fuel consumption: 14.14 gallons)
+5. Paris (Estimated flight duration: 9.22 hours, Fuel consumption: 14.86 gallons)
+6. Madrid (Estimated flight duration: 9.12 hours, Fuel consumption: 14.69 gallons)
+7. Los Angeles (Estimated flight duration: 6.95 hours, Fuel consumption: 11.20 gallons)
+8. Berlin (Estimated flight duration: 10.13 hours, Fuel consumption: 16.33 gallons)
 --------------------------------------------------------
 Do you want to make another calculation? (yes/no)
 no
