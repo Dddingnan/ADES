@@ -23,6 +23,8 @@ public class TravelCalculator {
                 double finalAirplaneRange = airplane.getRange() * weatherFactor;
                 if (distance <= finalAirplaneRange) {
                     reachableLocations.add(location);
+                    double duration = calculateFlightDuration(airplane, distance);
+                    System.out.printf("Estimated flight duration to %s: %.2f hours\n", location.getName(), duration);
                 }
             }
         }
@@ -101,6 +103,11 @@ public class TravelCalculator {
         double haversineC = 2 * Math.atan2(Math.sqrt(haversineA), Math.sqrt(1 - haversineA));
 
         return earthRadius * haversineC; // Distance in km
+    }
+
+    public double calculateFlightDuration(Airplane airplane, double distance) {
+        double speed = airplane.getSpeed();
+        return distance / speed; // Time in hours
     }
 
 }
