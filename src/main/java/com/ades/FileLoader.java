@@ -7,6 +7,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import java.io.InputStream;
 
 public class FileLoader {
     public String line = "";
@@ -88,27 +91,21 @@ public class FileLoader {
      * The file should be in CSV format with each line representing one weather
      * data,
      * and each line should be in the format:
-     * "<season>,<windSpeed>,<temperature>,<humidity>".
+     * {
+     * season: string;
+     * winSpeed: number;
+     * temperature: number;
+     * humidity: number;
+     * }[]
      * Postcondition: Returns a list of Weather objects loaded from the file.
      * Each Weather object corresponds to one line in the file.
-     * Throws: FileNotFoundException if the file with the given fileName does not
-     * exist.
-     * IOException if an error occurs while reading the file.
+     * Throws: IOException if an error occurs while reading the file.
      */
-    public <T> List<Weather<T>> loadWeatherFromFile(String fileName, Function<String, T> seasonParser)
-            throws FileNotFoundException, IOException, InvalidDataException {
-        List<Weather<T>> weatherList = new ArrayList<>();
-        BufferedReader br = new BufferedReader(new FileReader(fileName));
-        while ((line = br.readLine()) != null) {
-            String[] weatherData = line.split(splitBy);
-            T season = seasonParser.apply(weatherData[0]);
-            double windSpeed = Double.parseDouble(weatherData[1]);
-            double temperature = Double.parseDouble(weatherData[2]);
-            double humidity = Double.parseDouble(weatherData[3]);
-            Weather<T> weather = new Weather<>(season, windSpeed, temperature, humidity);
-            weatherList.add(weather);
-        }
-        br.close();
+    public List<Weather<Season>> loadWeatherFromFile(String fileName) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        InputStream is = getClass().getResourceAsStream(fileName);
+        List<Weather<Season>> weatherList = objectMapper.readValue(is, new TypeReference<List<Weather<Season>>>() {
+        });
         return weatherList;
     }
 }

@@ -10,6 +10,7 @@ import com.ades.FileLoader;
 import com.ades.Location;
 import com.ades.Airplane;
 import com.ades.Weather;
+import com.ades.Season;
 
 public class FileLoaderTest {
 
@@ -60,14 +61,14 @@ public class FileLoaderTest {
     @Test
     public void testLoadWeatherFromFile() {
         FileLoader fileLoader = new FileLoader();
-        String fileName = "src/data/weather.csv";
+        String fileName = "/data/weather.json";
 
         try {
-            List<Weather<String>> weatherList = fileLoader.loadWeatherFromFile(fileName, String::valueOf);
+            List<Weather<Season>> weatherList = fileLoader.loadWeatherFromFile(fileName);
 
             Assertions.assertEquals(3, weatherList.size());
 
-            Weather<String> weather1 = weatherList.get(0);
+            Weather<Season> weather1 = weatherList.get(0);
             Assertions.assertEquals("Spring", weather1.getSeason());
             Assertions.assertEquals(10.0, weather1.getWindSpeed());
             Assertions.assertEquals(25.0, weather1.getTemperature());
@@ -75,7 +76,7 @@ public class FileLoaderTest {
 
             // Add assertions for the remaining weather data
 
-        } catch (IOException | InvalidDataException e) {
+        } catch (IOException e) {
             Assertions.fail("An exception occurred: " + e.getMessage());
         }
     }

@@ -18,7 +18,7 @@ public class Main {
             System.out.println("--------------------------------------------------------");
             locations = loader.loadLocationsFromFile("src/data/locations.csv");
             airplanes = loader.loadAirplanesFromFile("src/data/airplanes.csv");
-            List<Weather<Season>> weatherList = loader.loadWeatherFromFile("src/data/weather.csv", Season::valueOf);
+            List<Weather<Season>> weatherList = loader.loadWeatherFromFile("/data/weather.json");
             // Get the user's current data and determine the season
             Weather<Season> currentWeather = weatherList.stream()
                     .filter(weather -> weather.getSeason() == currentSeason)

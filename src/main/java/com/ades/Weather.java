@@ -6,6 +6,9 @@ public class Weather<T> {
     private double temperature;
     private double humidity;
 
+    public Weather() {
+    }
+
     public Weather(T season, double windSpeed, double temperature, double humidity) {
         this.season = season;
         this.windSpeed = windSpeed;

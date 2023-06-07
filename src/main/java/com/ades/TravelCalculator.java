@@ -1,11 +1,9 @@
 package com.ades;
 
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.AbstractMap;
-import java.util.AbstractMap.SimpleEntry;
 
 public class TravelCalculator {
     private List<Location> locations;
