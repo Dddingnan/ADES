@@ -3,11 +3,13 @@ package com.ades;
 import java.util.List;
 import java.util.Map;
 import java.util.AbstractMap;
-import java.util.AbstractMap.SimpleEntry;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class UserInterface {
     private List<Location> locations;
@@ -103,17 +105,21 @@ public class UserInterface {
                         "%d. %s (Estimated flight duration: %.2f hours, Fuel consumption: %.2f gallons)\n",
                         index++, location.getName(), duration, fuelConsumption);
             }
-
-            // // Write reachableLocations to a text file
-            // try (PrintWriter writer = new PrintWriter(new
-            // FileWriter("reachable_locations.txt"))) {
-            // for (int i = 0; i < reachableLocations.size(); i++) {
-            // writer.println((i + 1) + ". " + reachableLocations.get(i).getName());
-            // }
-            // } catch (IOException e) {
-            // System.out.println("Error writing to file: " + e.getMessage());
-            // }
-
+            // TODO
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+            ObjectWriter writer = objectMapper.writerWithDefaultPrettyPrinter();
+            String json = "";
+            try {
+                json = writer.writeValueAsString(reachableLocations);
+            } catch (JsonProcessingException e) {
+                System.out.println(e.getMessage());
+            }
+            try (FileWriter fileWriter = new FileWriter("reachable_locations.json")) {
+                fileWriter.write(json);
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("--------------------------------------------------------");
             System.out.println("Do you want to make another calculation? (yes/no)");
             String answer = scanner.next();
