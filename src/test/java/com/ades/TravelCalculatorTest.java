@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleEntry;
 import com.ades.*;
 
 public class TravelCalculatorTest {
@@ -37,8 +39,9 @@ public class TravelCalculatorTest {
         TravelCalculator travelCalculator = new TravelCalculator(locations, weather);
 
         // Calculate reachable locations
-        Map<Location, Double> reachableLocations = travelCalculator.calculateReachableLocations(airplane,
-                currentLocation);
+        Map<Location, AbstractMap.SimpleEntry<Double, Double>> reachableLocations = travelCalculator
+                .calculateReachableLocations(airplane,
+                        currentLocation);
 
         // Assert that reachableLocations contains the expected locations
         Assertions.assertTrue(reachableLocations.containsKey(locations.get(0))); // City1 is reachable

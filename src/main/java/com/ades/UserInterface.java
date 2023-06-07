@@ -2,6 +2,8 @@ package com.ades;
 
 import java.util.List;
 import java.util.Map;
+import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -88,15 +90,18 @@ public class UserInterface {
             }
             Airplane airplane = airplanes.get(airplaneIndex);
 
-            Map<Location, Double> reachableLocations = travelCalculator.calculateReachableLocations(airplane,
-                    currentLocation);
+            Map<Location, AbstractMap.SimpleEntry<Double, Double>> reachableLocations = travelCalculator
+                    .calculateReachableLocations(airplane, currentLocation);
             System.out.println("Potential city destinations on a single tank of fuel:");
             int index = 1;
-            for (Map.Entry<Location, Double> entry : reachableLocations.entrySet()) {
+            for (Map.Entry<Location, AbstractMap.SimpleEntry<Double, Double>> entry : reachableLocations.entrySet()) {
                 Location location = entry.getKey();
-                Double duration = entry.getValue();
-                System.out.printf("%d. %s (Estimated flight duration: %.2f hours)\n", index++, location.getName(),
-                        duration);
+                AbstractMap.SimpleEntry<Double, Double> flightData = entry.getValue();
+                Double duration = flightData.getKey();
+                Double fuelConsumption = flightData.getValue();
+                System.out.printf(
+                        "%d. %s (Estimated flight duration: %.2f hours, Fuel consumption: %.2f gallons)\n",
+                        index++, location.getName(), duration, fuelConsumption);
             }
 
             // // Write reachableLocations to a text file

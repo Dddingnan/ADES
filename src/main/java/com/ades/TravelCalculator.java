@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
+import java.util.AbstractMap.SimpleEntry;
 
 public class TravelCalculator {
     private List<Location> locations;
@@ -14,8 +16,9 @@ public class TravelCalculator {
         this.weather = weather;
     }
 
-    public Map<Location, Double> calculateReachableLocations(Airplane airplane, Location currentLocation) {
-        Map<Location, Double> reachableLocations = new HashMap<>();
+    public Map<Location, AbstractMap.SimpleEntry<Double, Double>> calculateReachableLocations(Airplane airplane,
+            Location currentLocation) {
+        Map<Location, AbstractMap.SimpleEntry<Double, Double>> reachableLocations = new HashMap<>();
         for (Location location : locations) {
             if (!location.equals(currentLocation)) {
                 double distance = calculateDistance(currentLocation.getLatitude(), currentLocation.getLongitude(),
@@ -24,7 +27,8 @@ public class TravelCalculator {
                 double finalAirplaneRange = airplane.getRange() * weatherFactor;
                 if (distance <= finalAirplaneRange) {
                     double duration = calculateFlightDuration(airplane, distance);
-                    reachableLocations.put(location, duration);
+                    double fuelConsumption = calculateFuelConsumption(airplane, distance, weatherFactor);
+                    reachableLocations.put(location, new AbstractMap.SimpleEntry<>(duration, fuelConsumption));
                 }
             }
         }
@@ -108,6 +112,10 @@ public class TravelCalculator {
     public double calculateFlightDuration(Airplane airplane, double distance) {
         double speed = airplane.getSpeed();
         return distance / speed; // Time in hours
+    }
+
+    public double calculateFuelConsumption(Airplane airplane, double distance, double weatherFactor) {
+        return distance / airplane.getFuelConsumption() * weatherFactor;
     }
 
 }
