@@ -3,7 +3,7 @@
 ## About The Project
 
 ```
-This project aims to create a tool that allows users to figure out where they can travel with their airplanes on a single tank of fuel. Users provide their current location in terms of latitude and longitude and also specify the type of airplane they're using. The system then uses this information, along with data about the airplane's fuel capacity, fuel consumption rates, range, and the city geolocation as well, to calculate the furthest possible city the plane can travel without refueling.
+This project provides an advanced tool for airplane owners to discern potential destinations considering their fuel constraints. Users input their location, and airplane type to reveal the furthest city they can reach without refueling. This tool now boasts two additions: a Flight Duration Estimation module, which estimates travel times based on aircraft speed and distance, and a Fuel Consumption Estimation module that predicts fuel usage considering the aircraft's efficiency, distance, and seasonal weather conditions.
 ```
 
 ---
@@ -96,14 +96,49 @@ See you next time~!
 
 ---
 
+## Requirements
+
+- 2.1 Menu Interface
+  - The application shall provide a user interface for the user to select their current city and airplane type from a menu.
+- 2.2 Airplane Range Calculation and Destination Suggestion
+  - The application shall calculate the maximum non-stop travel distance of the chosen airplane based on its fuel capacity, consumption rates, and range.
+  - Using the calculated distance, the application will suggest a list of potential city destinations that can be reached from the user's current location without refueling.
+- 2.3. File Loading
+  - The application must load airplane model and city data from input files at the start of the program.
+  - It should handle file I/O exceptions gracefully and provide appropriate feedback to the user without crashing the system.
+- 2.4. Data Validation
+  - The application must validate input data for airplane models and cities to ensure they are valid and consistent.
+  - It should handle cases of invalid or inconsistent data, such as negative fuel capacity, consumption rates, or invalid geolocation data.
+  - If any such issues are encountered, the system should inform the user about the specific error without crashing.
+- 2.5. User Input Validation
+  - The application must validate user inputs to ensure they are within the expected range and conform to the required data format.
+  - If the user enters a choice that is not listed in the menu or provides invalid data, the system should inform the user about the error and allow them to correct their input.
+- 2.6. Weather Condition Consideration
+  - The application shall prompt the user to enter the current season (e.g., spring, summer, fall, winter).
+  - The application shall consider the user’s current season as a factor, some certain weather conditions can impact the distance a plane can reach.
+  - The specific impact of each season on the distance calculations shall be determined based on predefined weather indices.
+- 2.7 Flight Duration Estimation.
+  - The application shall incorporate a computation module capable of calculating the estimated flight duration. This module will use the distance to each potential destination and the cruising speed of the selected aircraft as inputs.
+  - A calculation module will estimate flight durations using distance and aircraft speed. The formula used will be time = distance/speed.
+  - The estimated durations, in hours and minutes, will be displayed next to each potential destination on the interface.
+- 2.8 Fuel Consumption Estimation.
+  - The application shall include a fuel estimation module. This will calculate estimated fuel consumption for each potential destination. The module will consider the aircraft's fuel efficiency, the distance to each destination, and data on seasonal variations in fuel efficiency.
+  - Estimated fuel consumption will be displayed for each potential destination.
+- 2.9 CO2 Emissions Estimation.
+  - The application shall include a CO2 emissions estimation module. This module will calculate the estimated CO2 emissions for each potential destination.
+  - The CO2 emissions estimation will consider the aircraft's fuel consumption for the proposed flight and the specific CO2 emissions per liter of aviation fuel.
+  - The estimated CO2 emissions will be displayed for each potential destination.
+- 2.10 Cost of Flight Estimation
+  - The application shall incorporate a cost estimation module. This module will calculate the estimated cost of fuel for each potential destination.
+  - The cost estimation will be based on the aircraft's estimated fuel consumption for the proposed flight and the current average cost of aviation fuel.
+  - The estimated cost of fuel will be displayed for each potential destination.
+
+---
+
 ## To-Do List
 
 ---
 
-- Display Flight Duration
-  - include a calculation for estimated flight duration based on the speed of the chosen airplane and the distance to each potential destination.
-- Fuel Consumption
-  - Provide an estimate of fuel consumption for the trip to each potential destination. This could take into consideration the airplane's fuel efficiency, the distance, and even the season if it significantly affects fuel efficiency.
 - CO2 Emissions Estimation
   - Given growing environmental consciousness, providing an estimate of the CO2 emissions for each flight could be an interesting addition. This could be calculated based on the fuel consumption and the specific CO2 emissions per liter of aviation fuel.
 - Cost of Flight
@@ -115,5 +150,5 @@ See you next time~!
 
 ## Author
 
-Ding-Nan, Hsu. - 2023/05/29 -
+Ding-Nan, Hsu. - 2023/06/10 -
 dingnan@bu.edu
