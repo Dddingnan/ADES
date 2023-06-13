@@ -4,9 +4,10 @@ import java.util.List;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class Main {
-    public static void main(String[] args) throws InvalidDataException {
+    public static void main(String[] args) throws InvalidDataException, InterruptedException, ExecutionException {
         System.out.println("Hello! Welcome to the Airplane Destination Evaluation System!");
         System.out.println("--------------------------------------------------------");
         List<Location> locations = new ArrayList<>();
@@ -24,7 +25,8 @@ public class Main {
                     .filter(weather -> weather.getSeason() == currentSeason)
                     .findFirst()
                     .orElse(null);
-            TravelCalculator travelCalculator = new TravelCalculator(locations, currentWeather);
+            TravelCalculator travelCalculator = new TravelCalculator(locations,
+                    currentWeather);
             UserInterface ui = new UserInterface(locations, airplanes, travelCalculator);
             ui.start();
         } catch (FileNotFoundException e) {

@@ -74,20 +74,54 @@ Please select your current location:
 15. Cairo
 16. Johannesburg
 17. Nairobi
-Enter a number between 1 and 17: 1
+Enter a number between 1 and 17: 4
 Please select your airplane type:
 1. Boeing 747
 2. Airbus A380
 Enter a number between 1 and 2: 1
 Potential city destinations on a single tank of fuel:
-1. New York (Estimated flight duration: 0.51 hours, Fuel consumption: 0.82 gallons)
-2. Rome (Estimated flight duration: 10.98 hours, Fuel consumption: 17.69 gallons)
-3. Cairo (Estimated flight duration: 14.53 hours, Fuel consumption: 23.42 gallons)
-4. London (Estimated flight duration: 8.77 hours, Fuel consumption: 14.14 gallons)
-5. Paris (Estimated flight duration: 9.22 hours, Fuel consumption: 14.86 gallons)
-6. Madrid (Estimated flight duration: 9.12 hours, Fuel consumption: 14.69 gallons)
-7. Los Angeles (Estimated flight duration: 6.95 hours, Fuel consumption: 11.20 gallons)
-8. Berlin (Estimated flight duration: 10.13 hours, Fuel consumption: 16.33 gallons)
+
+1. Destination: Bangkok
+   Estimated flight duration: 4.03 hours
+   Fuel consumption: 6.49 gallons
+   CO2 Emissions: 65.58 kg
+   Estimated Flight Cost: $26.95
+
+2. Destination: Ho Chi Minh City
+   Estimated flight duration: 3.48 hours
+   Fuel consumption: 5.60 gallons
+   CO2 Emissions: 56.59 kg
+   Estimated Flight Cost: $23.25
+
+3. Destination: Cairo
+   Estimated flight duration: 14.49 hours
+   Fuel consumption: 23.35 gallons
+   CO2 Emissions: 235.81 kg
+   Estimated Flight Cost: $96.89
+
+4. Destination: Berlin
+   Estimated flight duration: 15.07 hours
+   Fuel consumption: 24.29 gallons
+   CO2 Emissions: 245.33 kg
+   Estimated Flight Cost: $100.80
+
+5. Destination: Tokyo
+   Estimated flight duration: 3.73 hours
+   Fuel consumption: 6.02 gallons
+   CO2 Emissions: 60.79 kg
+   Estimated Flight Cost: $24.98
+
+6. Destination: Singapore
+   Estimated flight duration: 5.16 hours
+   Fuel consumption: 8.32 gallons
+   CO2 Emissions: 83.99 kg
+   Estimated Flight Cost: $34.51
+
+7. Destination: Shanghai
+   Estimated flight duration: 1.40 hours
+   Fuel consumption: 2.25 gallons
+   CO2 Emissions: 22.77 kg
+   Estimated Flight Cost: $9.35
 --------------------------------------------------------
 Do you want to make another calculation? (yes/no)
 no

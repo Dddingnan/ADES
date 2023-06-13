@@ -39,7 +39,7 @@ public class TravelCalculatorTest {
         TravelCalculator travelCalculator = new TravelCalculator(locations, weather);
 
         // Calculate reachable locations
-        Map<Location, AbstractMap.SimpleEntry<Double, Double>> reachableLocations = travelCalculator
+        Map<Location, FlightData> reachableLocations = travelCalculator
                 .calculateReachableLocations(airplane,
                         currentLocation);
 

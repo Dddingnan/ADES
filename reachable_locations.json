@@ -1,23 +1,86 @@
 {
-  "com.ades.Location@4d2c3f6e" : {
-    "1.3985199796523198" : 2.2539831768996414
+  "com.ades.Location@643f74fb" : {
+    "duration" : 4.028674086410319,
+    "fuelConsumption" : 6.4929809713822415,
+    "futureCO2Emissions" : {
+      "done" : true,
+      "cancelled" : false
+    },
+    "futureFlightCost" : {
+      "done" : true,
+      "cancelled" : false
+    }
   },
-  "com.ades.Location@6074d6f0" : {
-    "15.070966233234493" : 24.289752626757732
+  "com.ades.Location@3aeba8be" : {
+    "duration" : 3.4767213589741512,
+    "fuelConsumption" : 5.603403289128259,
+    "futureCO2Emissions" : {
+      "done" : true,
+      "cancelled" : false
+    },
+    "futureFlightCost" : {
+      "done" : true,
+      "cancelled" : false
+    }
   },
-  "com.ades.Location@5c6abf42" : {
-    "4.028674086410319" : 6.4929809713822415
+  "com.ades.Location@317e12f9" : {
+    "duration" : 14.486578881017788,
+    "fuelConsumption" : 23.34790032585829,
+    "futureCO2Emissions" : {
+      "done" : true,
+      "cancelled" : false
+    },
+    "futureFlightCost" : {
+      "done" : true,
+      "cancelled" : false
+    }
   },
-  "com.ades.Location@4972570b" : {
-    "3.734487689953242" : 6.018843169895966
+  "com.ades.Location@2e792361" : {
+    "duration" : 15.070966233234493,
+    "fuelConsumption" : 24.289752626757732,
+    "futureCO2Emissions" : {
+      "done" : true,
+      "cancelled" : false
+    },
+    "futureFlightCost" : {
+      "done" : true,
+      "cancelled" : false
+    }
   },
-  "com.ades.Location@179e80a7" : {
-    "5.1596245985673805" : 8.315724632821945
+  "com.ades.Location@6473d1f8" : {
+    "duration" : 3.734487689953242,
+    "fuelConsumption" : 6.018843169895966,
+    "futureCO2Emissions" : {
+      "done" : true,
+      "cancelled" : false
+    },
+    "futureFlightCost" : {
+      "done" : true,
+      "cancelled" : false
+    }
   },
-  "com.ades.Location@69edf513" : {
-    "14.486578881017788" : 23.34790032585829
+  "com.ades.Location@1eb99595" : {
+    "duration" : 5.1596245985673805,
+    "fuelConsumption" : 8.315724632821945,
+    "futureCO2Emissions" : {
+      "done" : true,
+      "cancelled" : false
+    },
+    "futureFlightCost" : {
+      "done" : true,
+      "cancelled" : false
+    }
   },
-  "com.ades.Location@4c0f4750" : {
-    "3.4767213589741512" : 5.603403289128259
+  "com.ades.Location@26d65a18" : {
+    "duration" : 1.3985199796523198,
+    "fuelConsumption" : 2.2539831768996414,
+    "futureCO2Emissions" : {
+      "done" : true,
+      "cancelled" : false
+    },
+    "futureFlightCost" : {
+      "done" : true,
+      "cancelled" : false
+    }
   }
 }

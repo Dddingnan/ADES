@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.AbstractMap;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 import java.io.FileWriter;
 import java.io.IOException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -24,7 +25,7 @@ public class UserInterface {
         this.scanner = new Scanner(System.in);
     }
 
-    public void start() {
+    public void start() throws InterruptedException, ExecutionException {
         while (true) {
             System.out.println("Please select your current location:");
             for (int i = 0; i < locations.size(); i++) {
@@ -44,7 +45,6 @@ public class UserInterface {
                     locationIndex = Integer.parseInt(input) - 1;
 
                     if (locationIndex < 0 || locationIndex >= locations.size()) { // Check if input is within the valid
-                                                                                  // range
                         throw new InvalidDataException(
                                 "Invalid input range. Please enter a number between 1 and " + locations.size(),
                                 "UserInterface - Not within the valid range", input);
@@ -77,7 +77,7 @@ public class UserInterface {
                     airplaneIndex = Integer.parseInt(input) - 1;
 
                     if (airplaneIndex < 0 || airplaneIndex >= locations.size()) { // Check if input is within the valid
-                                                                                  // range
+                        // range
                         throw new InvalidDataException(
                                 "Invalid input range. Please enter a number between 1 and " + airplanes.size(),
                                 "UserInterface - Not within the valid range", input);
@@ -92,18 +92,23 @@ public class UserInterface {
             }
             Airplane airplane = airplanes.get(airplaneIndex);
 
-            Map<Location, AbstractMap.SimpleEntry<Double, Double>> reachableLocations = travelCalculator
-                    .calculateReachableLocations(airplane, currentLocation);
+            Map<Location, FlightData> reachableLocations = travelCalculator.calculateReachableLocations(airplane,
+                    currentLocation);
             System.out.println("Potential city destinations on a single tank of fuel:");
             int index = 1;
-            for (Map.Entry<Location, AbstractMap.SimpleEntry<Double, Double>> entry : reachableLocations.entrySet()) {
+            for (Map.Entry<Location, FlightData> entry : reachableLocations.entrySet()) {
                 Location location = entry.getKey();
-                AbstractMap.SimpleEntry<Double, Double> flightData = entry.getValue();
-                Double duration = flightData.getKey();
-                Double fuelConsumption = flightData.getValue();
-                System.out.printf(
-                        "%d. %s (Estimated flight duration: %.2f hours, Fuel consumption: %.2f gallons)\n",
-                        index++, location.getName(), duration, fuelConsumption);
+                FlightData flightData = entry.getValue();
+                Double duration = flightData.getDuration();
+                Double fuelConsumption = flightData.getFuelConsumption();
+                Double CO2Emissions = flightData.getFutureCO2Emissions().get(); // Here we retrieve the result
+                Double flightCost = flightData.getFutureFlightCost().get(); // Here we retrieve the result
+
+                System.out.println("\n" + index++ + ". Destination: " + location.getName());
+                System.out.println("   Estimated flight duration: " + String.format("%.2f", duration) + " hours");
+                System.out.println("   Fuel consumption: " + String.format("%.2f", fuelConsumption) + " gallons");
+                System.out.println("   CO2 Emissions: " + String.format("%.2f", CO2Emissions) + " kg");
+                System.out.println("   Estimated Flight Cost: $" + String.format("%.2f", flightCost));
             }
             // TODO
             ObjectMapper objectMapper = new ObjectMapper();

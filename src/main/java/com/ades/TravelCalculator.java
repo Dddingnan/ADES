@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.AbstractMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class TravelCalculator {
     private List<Location> locations;
@@ -14,9 +17,16 @@ public class TravelCalculator {
         this.weather = weather;
     }
 
-    public Map<Location, AbstractMap.SimpleEntry<Double, Double>> calculateReachableLocations(Airplane airplane,
+    public Map<Location, FlightData> calculateReachableLocations(Airplane airplane,
             Location currentLocation) {
-        Map<Location, AbstractMap.SimpleEntry<Double, Double>> reachableLocations = new HashMap<>();
+        Map<Location, FlightData> reachableLocations = new HashMap<>();
+        // Concurrency
+        // Get the number of available processor cores
+        int processors = Runtime.getRuntime().availableProcessors();
+        // Create a thread pool with a number of threads equal to half of the available
+        // processor cores
+        ExecutorService executorService = Executors.newFixedThreadPool(processors / 2);
+
         for (Location location : locations) {
             if (!location.equals(currentLocation)) {
                 double distance = calculateDistance(currentLocation.getLatitude(), currentLocation.getLongitude(),
@@ -26,10 +36,31 @@ public class TravelCalculator {
                 if (distance <= finalAirplaneRange) {
                     double duration = calculateFlightDuration(airplane, distance);
                     double fuelConsumption = calculateFuelConsumption(airplane, distance, weatherFactor);
-                    reachableLocations.put(location, new AbstractMap.SimpleEntry<>(duration, fuelConsumption));
+                    // Create a new task to calculate CO2 emissions, submit it to the executor
+                    // service and
+                    // store the reference to the Future object. The Future object will be used to
+                    // retrieve
+                    // the result of the calculation when it is ready.
+                    Future<Double> futureCO2Emissions = executorService
+                            .submit(new CO2EmissionsCalculator(fuelConsumption));
+                    // Create a new task to calculate the flight cost, submit it to the executor
+                    // service and
+                    // store the reference to the Future object. The Future object will be used to
+                    // retrieve
+                    // the result of the calculation when it is ready.
+                    Future<Double> futureFlightCost = executorService
+                            .submit(new FlightCostCalculator(fuelConsumption));
+
+                    FlightData flightData = new FlightData(duration, fuelConsumption, futureCO2Emissions,
+                            futureFlightCost);
+                    reachableLocations.put(location, flightData);
                 }
             }
         }
+        // Shutdown the executor service. No new tasks will be accepted. This does not
+        // interrupt previously submitted tasks and they will continue to run to
+        // completion.
+        executorService.shutdown();
         return reachableLocations;
     }
 
