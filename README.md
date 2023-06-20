@@ -40,11 +40,11 @@ This project is a sophisticated tool for airplane owners to plan travels. By ent
 
 - Without Test:
 
-  1. mvn clean install -DskipTests
+  1. mvn clean install -DskipTests -Dmaven.plugin.validation=BRIEF
   2. mvn exec:java
 
 - With Test:
-  1. mvn clean install
+  1. mvn clean install -Dmaven.plugin.validation=BRIEF
   2. mvn exec:java
 
 ---
