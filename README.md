@@ -3,7 +3,7 @@
 ## About The Project
 
 ```
-This project provides an advanced tool for airplane owners to discern potential destinations considering their fuel constraints. Users input their location, and airplane type to reveal the furthest city they can reach without refueling. This tool now boasts two additions: a Flight Duration Estimation module, which estimates travel times based on aircraft speed and distance, and a Fuel Consumption Estimation module that predicts fuel usage considering the aircraft's efficiency, distance, and seasonal weather conditions.
+This project is a sophisticated tool for airplane owners to plan travels. By entering their location and airplane type, users can find destinations within their non-refueling range. The tool determines flight range, potential destinations, and travel duration, considering aircraft specifics and fuel status. It also estimates fuel usage and CO2 emissions with respect to aircraft efficiency, flight distance, and weather conditions. Moreover, it calculates potential fuel costs. New features include an expanded list of airplane types for precise calculations and database integration for enhanced data management, effectively replacing file-based data loading. It handles database issues seamlessly. The tool gives users a comprehensive overview of each destination, promoting informed, eco-friendly travel decisions
 ```
 
 ---
@@ -166,19 +166,18 @@ See you next time~!
   - The application shall incorporate a cost estimation module. This module will calculate the estimated cost of fuel for each potential destination.
   - The cost estimation will be based on the aircraft's estimated fuel consumption for the proposed flight and the current average cost of aviation fuel.
   - The estimated cost of fuel will be displayed for each potential destination.
+- 2.11 Expanding Airplane Type Options
+  - The application shall extend the number of airplane types available for selection. The addition of more airplane types will increase the depth and precision of distance, duration, fuel consumption, and cost calculations, thereby enhancing the accuracy of potential destinations suggested to the user.
+- 2.12 Database Integration for Data Persistence
+  - The application shall transition from file-based data loading to database-driven data management.
+  - The application must connect to the database, read from it, and handle any database connection issues or exceptions without crashing.
+  - The application should include error-handling mechanisms to manage potential issues such as missing data, connection loss, or data format discrepancies.
 
 ---
 
 ## To-Do List
 
 ---
-
-- CO2 Emissions Estimation
-  - Given growing environmental consciousness, providing an estimate of the CO2 emissions for each flight could be an interesting addition. This could be calculated based on the fuel consumption and the specific CO2 emissions per liter of aviation fuel.
-- Cost of Flight
-  - obtain average costs of aviation fuel, you can estimate the cost of the flight based on the amount of fuel needed.
-- Adding More Airplane Types
-  - increase the number of airplane types for the user to select from. More options would add more depth to the calculations and results.
 
 ---
 

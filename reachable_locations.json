@@ -1,86 +1,98 @@
 {
-  "com.ades.Location@643f74fb" : {
-    "duration" : 4.028674086410319,
-    "fuelConsumption" : 6.4929809713822415,
+  "com.ades.Location@52e9fe59" : {
+    "duration" : 8.773615065283977,
+    "fuelConsumption" : 14.140363416659701,
     "futureCO2Emissions" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     },
     "futureFlightCost" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     }
   },
-  "com.ades.Location@3aeba8be" : {
-    "duration" : 3.4767213589741512,
-    "fuelConsumption" : 5.603403289128259,
+  "com.ades.Location@663bc8a8" : {
+    "duration" : 9.218717916703456,
+    "fuelConsumption" : 14.857732030398765,
     "futureCO2Emissions" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     },
     "futureFlightCost" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     }
   },
-  "com.ades.Location@317e12f9" : {
-    "duration" : 14.486578881017788,
-    "fuelConsumption" : 23.34790032585829,
+  "com.ades.Location@6a2f053c" : {
+    "duration" : 10.975068342825605,
+    "fuelConsumption" : 17.68842760201585,
     "futureCO2Emissions" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     },
     "futureFlightCost" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     }
   },
-  "com.ades.Location@2e792361" : {
-    "duration" : 15.070966233234493,
-    "fuelConsumption" : 24.289752626757732,
+  "com.ades.Location@277d5199" : {
+    "duration" : 9.11758186477916,
+    "fuelConsumption" : 14.694731885293876,
     "futureCO2Emissions" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     },
     "futureFlightCost" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     }
   },
-  "com.ades.Location@6473d1f8" : {
-    "duration" : 3.734487689953242,
-    "fuelConsumption" : 6.018843169895966,
+  "com.ades.Location@fb8e3a0" : {
+    "duration" : 14.528776021605541,
+    "fuelConsumption" : 23.415909111132642,
     "futureCO2Emissions" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     },
     "futureFlightCost" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     }
   },
-  "com.ades.Location@1eb99595" : {
-    "duration" : 5.1596245985673805,
-    "fuelConsumption" : 8.315724632821945,
+  "com.ades.Location@15887391" : {
+    "duration" : 0.5101808236857913,
+    "fuelConsumption" : 0.822254247701529,
     "futureCO2Emissions" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     },
     "futureFlightCost" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     }
   },
-  "com.ades.Location@26d65a18" : {
-    "duration" : 1.3985199796523198,
-    "fuelConsumption" : 2.2539831768996414,
+  "com.ades.Location@3e31c56d" : {
+    "duration" : 6.949345339683791,
+    "fuelConsumption" : 11.200202867324982,
     "futureCO2Emissions" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
     },
     "futureFlightCost" : {
-      "done" : true,
-      "cancelled" : false
+      "cancelled" : false,
+      "done" : true
+    }
+  },
+  "com.ades.Location@569173af" : {
+    "duration" : 10.13448615671702,
+    "fuelConsumption" : 16.333668189310647,
+    "futureCO2Emissions" : {
+      "cancelled" : false,
+      "done" : true
+    },
+    "futureFlightCost" : {
+      "cancelled" : false,
+      "done" : true
     }
   }
 }
