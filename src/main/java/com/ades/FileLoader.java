@@ -73,6 +73,16 @@ public class FileLoader {
                     airplanes.add(new Boeing747(name, range, fuelCapacity, fuelBurnRate, speed));
                 } else if (name.equals("Airbus A380")) {
                     airplanes.add(new AirbusA380(name, range, fuelCapacity, fuelBurnRate, speed));
+                } else if (name.equals("Airbus A320")) {
+                    airplanes.add(new AirbusA320(name, range, fuelCapacity, fuelBurnRate, speed));
+                } else if (name.equals("Boeing 737")) {
+                    airplanes.add(new Boeing737(name, range, fuelCapacity, fuelBurnRate, speed));
+                } else if (name.equals("Bombardier CRJ200")) {
+                    airplanes.add(new Bombardier(name, range, fuelCapacity, fuelBurnRate, speed));
+                } else if (name.equals("Embraer E190")) {
+                    airplanes.add(new Embraer(name, range, fuelCapacity, fuelBurnRate, speed));
+                } else if (name.equals("Boeing 777")) {
+                    airplanes.add(new Boeing777(name, range, fuelCapacity, fuelBurnRate, speed));
                 } else {
                     System.out.println("Unknown airplane type: " + name);
                 }
